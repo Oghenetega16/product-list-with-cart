@@ -114,7 +114,7 @@ main {
     font-size: 16px;
 }
 
-.dessert .selected-button .image {
+.dessert .selected-button .image, .remove {
     width: 20px;
     height: 20px;
     display: flex;
@@ -124,7 +124,12 @@ main {
     padding: .3rem;
 }
 
-.dessert .selected-button .image img {
+.cart-items .remove {
+    padding: .2rem;
+    border: 1px solid var(--rose-500);
+}
+
+.dessert .selected-button .image img, .remove img {
     width: 100%;
     height: 100%;
 }
@@ -133,11 +138,14 @@ main {
     margin-top: 1rem;
 }
 
+.dessert .dessert-desc span {
+    font-size: 15px;
+}
+
 .dessert .dessert-desc .name {
     color: var(--text-color);
     font-weight: 600;
     font-size: 18px;
-    margin: .4rem 0;
 }
 
 .dessert .dessert-desc .price {
@@ -150,6 +158,8 @@ main {
     background: #fff;
     padding: 1.5rem;
     border-radius: .6rem;
+    color: var(--rose-500);
+    margin-top: 2rem;
 }
 
 .cart-details h2 {
@@ -165,4 +175,97 @@ main {
 .cart-details p {
     text-align: center;
     margin: 1rem 0;
+}
+
+.cart-items {
+    border-bottom: 1px solid #ccc;
+    margin-top: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+.cart-values {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cart-items .item {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.cart-items h4 {
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.cart-items p {
+    color: var(--price-color);
+    font-weight: 600;
+    margin: 0;
+}
+
+.cart-items span {
+    margin-left: .3rem;
+}
+
+.cart-items .whole-price {
+    font-weight: 600;
+}
+
+.cart-items .unit-price {
+    margin-left: .8rem;
+}
+
+.cart-details .total-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.cart-details .total-price p {
+    font-size: 15px;
+}
+
+.cart-details .total-price h2 {
+    color: var(--text-color);
+}
+
+.cart-details .delivery-type {
+    background: var(--rose-100);
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    border-radius: .6rem;
+    padding: .8rem 1rem;
+    font-size: 15px;
+}
+
+.cart-details .delivery-type p {
+    margin: 0;
+}
+
+.cart-details .delivery-type span {
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.cart-details .confirm-btn {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    background: var(--price-color);
+    border-radius: 30px;
+    padding: 1rem 0;
+}
+
+.cart-details .confirm-btn button {
+    font-family: inherit;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
 }
