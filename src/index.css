@@ -25,6 +25,7 @@ body {
     background: var(--bg-color);
     display: grid;
     place-content: center;
+    position: relative;
 }
 
 span {
@@ -178,15 +179,19 @@ main {
 }
 
 .cart-items {
-    border-bottom: 1px solid #ccc;
     margin-top: 1.5rem;
-    padding-bottom: 1rem;
 }
 
 .cart-values {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    padding: .6rem 0;
+}
+
+.cart-values p {
+    display: flex;
 }
 
 .cart-items .item {
@@ -218,7 +223,7 @@ main {
     margin-left: .8rem;
 }
 
-.cart-details .total-price {
+.total-price {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -252,20 +257,95 @@ main {
     font-weight: 600;
 }
 
-.cart-details .confirm-btn {
+.confirm-btn {
     margin-top: 1.5rem;
     display: flex;
     justify-content: center;
     background: var(--price-color);
     border-radius: 30px;
     padding: 1rem 0;
+    cursor: pointer;
 }
 
-.cart-details .confirm-btn button {
+.confirm-btn button {
     font-family: inherit;
     background: transparent;
     border: none;
     color: #fff;
     font-weight: 600;
     font-size: 16px;
+}
+
+.confirm {
+    background: #fff;
+    padding: 2rem 1.5rem;
+    border-radius: 1rem 1rem 0 0;
+    position: absolute;
+    top: 6rem;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 5rem);
+    overflow: auto;
+    z-index: 9999;
+}
+
+.confirm h1 {
+    margin-bottom: 0;
+    width: 60px;
+}
+
+.confirm-order {
+    background: var(--bg-color);
+    padding: 1rem;
+    border-radius: .5rem;
+    margin-top: 1.5rem;
+}
+
+.confirm-items {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    padding: .6rem 0;
+}
+
+.confirm-items .thumbnail {
+    width: 50px;
+    height: 50px;
+    border-radius: .5rem;
+}
+
+.confirm-items .thumbnail img {
+    width: 100%;
+    height: 100%;
+    border-radius: .5rem;
+}
+
+.confirm-items .product {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+} 
+
+.confirm-items .product p {
+    color: var(--price-color);
+}
+
+.confirm-items .product h4 {
+    font-weight: 600;
+}
+
+/* .no-scroll {
+    overflow: hidden;
+} */
+
+@media (min-width: 768px) {
+    main {
+        display: flex;
+    }
+
+    .desserts {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 }

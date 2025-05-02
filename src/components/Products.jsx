@@ -1,10 +1,6 @@
-import { useState } from 'react'
-import data from '/public/data.json'
+import data from '../data.json'
 
-export default function Products() {
-
-    const [clickedItems, setClickedItems] = useState([])
-    const [quantities, setQuantities] = useState({})
+export default function Products({ quantities, setQuantities, clickedItems, setClickedItems }) {
 
     function increment(index) {
         setQuantities(prev => ({
@@ -33,7 +29,7 @@ export default function Products() {
     }
 
     return (
-        <>
+        <div className='goods'>
             <h1>Desserts</h1>
             <div className="desserts">
                 {data.map((item, index) => {
@@ -44,21 +40,25 @@ export default function Products() {
                         <div className='dessert' key={index} >
                             <div className='selected-dessert' onClick={() => handleClick(index)}>
                                 <div className={isClicked ? 'dessert-image active' : 'dessert-image'}>
-                                    <img src={item.image.mobile} alt=''/>
+                                    <picture>
+                                        <source media="(min-width: 1024px)" srcSet={item.image.desktop} />
+                                        <source media="(min-width: 640px)" srcSet={item.image.tablet} />
+                                        <img src={item.image.mobile} alt="" />
+                                    </picture>
                                 </div>
 
                                 <div className="cart-btn">
                                     {!isClicked ? 
-                                    <div className="button">
-                                        <img src="./assets/images/icon-add-to-cart.svg" alt="" />
-                                        <p>Add to Cart</p>
-                                    </div> : 
-
-                                    <div className="selected-button" onClick={(e) => e.stopPropagation()}>
-                                        <div className='image' onClick={() => decrement(index)}><img src="./assets/images/icon-decrement-quantity.svg" alt="minus icon" /></div>
-                                        <p>{quantity}</p>
-                                        <div className='image' onClick={() => increment(index)}><img src="./assets/images/icon-increment-quantity.svg" alt="plus icon" /></div>
-                                    </div>
+                                        <div className="button">
+                                            <img src="./assets/images/icon-add-to-cart.svg" alt="" />
+                                            <p>Add to Cart</p>
+                                        </div> 
+                                        :
+                                        <div className="selected-button" onClick={(e) => e.stopPropagation()}>
+                                            <div className='image' onClick={() => decrement(index)}><img src="./assets/images/icon-decrement-quantity.svg" alt="minus icon" /></div>
+                                            <p>{quantity}</p>
+                                            <div className='image' onClick={() => increment(index)}><img src="./assets/images/icon-increment-quantity.svg" alt="plus icon" /></div>
+                                        </div>
                                     }
                                 </div>
                             </div>
@@ -72,6 +72,6 @@ export default function Products() {
                     )
                 })}
             </div>
-        </>
+        </div>
     )
 }
