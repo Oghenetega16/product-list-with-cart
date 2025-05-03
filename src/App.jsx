@@ -22,13 +22,13 @@ export default function App() {
     }
 
     return (
-        <>
+        <div className='container'>
             <main>
                 <Products clickedItems={clickedItems} setClickedItems={setClickedItems} quantities={quantities} setQuantities={setQuantities} />
                 <CartDetails clickedItems={clickedItems} setClickedItems={setClickedItems} quantities={quantities} setQuantities={setQuantities} confirm={confirm} setConfirm={setConfirm} totalPrice={totalPrice} />
             </main>
             {confirm === true && <ConfirmModal clickedItems={clickedItems} quantities={quantities} totalPrice={totalPrice} onReset={handleReset} />}
-        </>
+        </div>
     )
 }
 
