@@ -120,14 +120,30 @@ main {
     height: 20px;
     display: flex;
     justify-content: center;
+    align-items: center;
     border-radius: 50px;
     border: 1px solid white;
-    padding: .3rem;
+}
+
+.dessert .selected-button .image:active {
+    background: white;
+}
+
+.dessert .selected-button svg:active {
+    stroke: #C73A0F;
 }
 
 .cart-items .remove {
     padding: .2rem;
     border: 1px solid var(--rose-500);
+}
+
+.cart-items .remove:active {
+    border: 2px solid var(--rose-500);
+}
+
+.cart-items .remove svg {
+    stroke: var(--rose-500);
 }
 
 .dessert .selected-button .image img, .remove img {
@@ -286,8 +302,11 @@ main {
     padding: 2rem 1.5rem;
     border-radius: .8rem .8rem 0 0;
     position: absolute;
-    top: 4rem;
-    height: 100%;
+    top: 13%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100vh;
+    width: 100vw;
     z-index: 999;
 }
 
@@ -309,7 +328,6 @@ main {
     justify-content: space-between;
     border-bottom: 1px solid #ccc;
     padding: .6rem 0;
-    
 }
 
 .confirm-items .thumbnail {
@@ -334,7 +352,18 @@ main {
     color: var(--price-color);
 }
 
+.confirm-items .product span {
+    margin-left: 1rem;
+}
+
 .confirm-items .product h4 {
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.confirm-items .item-total {
     font-weight: 600;
 }
 
@@ -343,6 +372,10 @@ main {
     inset: 0;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 998;
+    overflow: hidden;
+}
+
+.no-scroll {
     overflow: hidden;
 }
 
@@ -359,13 +392,21 @@ main {
     }
 
     .confirm {
-        width: 350px;
+        width: 400px;
         position: absolute;
         top: 20%;
         left: 50%;
         transform: translate(-50%, -50%);
         height: fit-content;
         border-radius: .8rem;
+    }
+
+    .confirm h1 {
+        width: fit-content;
+    }
+
+    .no-scroll {
+        overflow: visible;
     }
 }
 
@@ -409,10 +450,6 @@ main {
     .confirm {
         border-radius: 1rem;
         width: 500px;
-        position: absolute;
         top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        height: fit-content;
     }
 }

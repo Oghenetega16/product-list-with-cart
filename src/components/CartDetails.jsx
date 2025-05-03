@@ -14,10 +14,15 @@ export default function CartDetails({ clickedItems, quantities, setClickedItems,
     function confirmOrder() {
         setConfirm(!confirm)
     }
+
+    const handleStartNewOrder = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+        confirmOrder()
+    }
     
     return (
         <div className="cart-details">
-            <h2>Your Cart <span>({(clickedItems.length)})</span></h2>
+            <h2>Your Cart ({(clickedItems.length)})</h2>
             {(clickedItems.length) === 0 ? 
                 <>
                     <div className="cart-image">
@@ -42,7 +47,9 @@ export default function CartDetails({ clickedItems, quantities, setClickedItems,
                                             <span className="whole-price">${itemTotal}</span>
                                         </p>
                                     </div>
-                                    <div className="remove" onClick={() => handleRemove(index)}><img src="./assets/images/icon-remove-item.svg" alt="remove icon" /></div>
+                                    <div className="remove" onClick={() => handleRemove(index)}>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none" viewBox="0 0 10 10"><path fill="#CAAFA7" d="M8.375 9.375 5 6 1.625 9.375l-1-1L4 5 .625 1.625l1-1L5 4 8.375.625l1 1L6 5l3.375 3.375-1 1Z"/></svg>
+                                    </div>
                                 </div>
                             )
                         })}
@@ -57,7 +64,7 @@ export default function CartDetails({ clickedItems, quantities, setClickedItems,
                         <p>This is a <span>carbon-neutral</span> delivery</p>
                     </div>
                     <div className="confirm-btn">
-                        <button onClick={()=> confirmOrder()}>Confirm Order</button>
+                        <button onClick={()=> handleStartNewOrder()}>Confirm Order</button>
                     </div>
                 </>
             }

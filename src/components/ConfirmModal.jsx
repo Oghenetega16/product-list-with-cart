@@ -33,7 +33,7 @@ export default function ConfirmModal({ clickedItems, quantities, totalPrice, onR
                                     <p>{quantity}x <span>@ ${item.price.toFixed(2)}</span></p>
                                 </div>
                             </div>
-                            <p>${itemTotal}</p>
+                            <p className='item-total'>${itemTotal}</p>
                         </div>
                     )
                 })}
